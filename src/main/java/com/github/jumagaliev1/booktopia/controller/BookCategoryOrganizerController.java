@@ -1,5 +1,6 @@
 package com.github.jumagaliev1.booktopia.controller;
 
+import com.github.jumagaliev1.booktopia.model.Book;
 import com.github.jumagaliev1.booktopia.service.BookCategoryOrganizerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

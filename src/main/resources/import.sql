@@ -11,7 +11,7 @@ INSERT INTO Category
 VALUES (2, 'Maths');
 
 INSERT INTO Book_Store
-VALUES (1, 'ISTANBUL', 'Deniz Book Store');
+VALUES (1, 'ALmaty', 'Kitap AL Store');
 INSERT INTO Book_Store
 VALUES (2, 'ANKARA', 'Pegasus Book Store');
 INSERT INTO Book_Store

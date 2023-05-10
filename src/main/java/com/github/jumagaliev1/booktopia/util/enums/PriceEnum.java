@@ -8,6 +8,7 @@ import java.util.Map;
 
 @Getter
 public enum PriceEnum {
+    ALMATY(4),
     ISTANBUL(3),
     ANKARA(2),
     IZMIR(1);

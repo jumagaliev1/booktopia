@@ -2,6 +2,7 @@ package com.github.jumagaliev1.booktopia.controller;
 
 
 import com.github.jumagaliev1.booktopia.model.Book;
+import com.github.jumagaliev1.booktopia.model.BookStore;
 import com.github.jumagaliev1.booktopia.model.Category;
 import com.github.jumagaliev1.booktopia.service.CreateOperationsService;
 import org.slf4j.Logger;

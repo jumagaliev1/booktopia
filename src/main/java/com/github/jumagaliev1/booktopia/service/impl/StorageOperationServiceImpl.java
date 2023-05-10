@@ -25,23 +25,23 @@ public class StorageOperationServiceImpl implements StorageOperationService {
     private final BookStoreRepository bookStoreRepository;
     @Override
     public BookStoreInventory addBookToTheBookStoreInventory(BookStoreInventoryRequest request) {
-        BookStore bookStore = findBookStoreById(request.getBookStoreID());
-        Book book = findBookById(request.getBookID());
+        BookStore bookStore = findBookStoreById(request.getBookStoreId());
+        Book book = findBookById(request.getBookId());
 
         BigDecimal priceMultiplier = getCityPriceMultiplier(bookStore);
 
-        if (bookAlreadyExist(request.getBookID(), request.getBookStoreID())) {
-            BookStoreInventory existingbookStoreInventory = bookStoreInventoryRepository.findByBookIdAndBookStoreId(request.getBookID(), request.getBookStoreID());
+        if (bookAlreadyExist(request.getBookId(), request.getBookStoreId())) {
+            BookStoreInventory existingbookStoreInventory = bookStoreInventoryRepository.findByBookIdAndBookStoreId(request.getBookId(), request.getBookStoreId());
             Long existingQuantity = existingbookStoreInventory.getBookQuantity();
             existingbookStoreInventory.setBookQuantity(existingQuantity + ADD_NEW_ONE_BOOK);
             return bookStoreInventoryRepository.save(existingbookStoreInventory);
         } else {
             BookStoreInventory newBookStoreInventory = new BookStoreInventory();
-            newBookStoreInventory.setBookID(book.getBookId());
+            newBookStoreInventory.setBookId(book.getBookId());
             newBookStoreInventory.setBookName(book.getBookName());
             newBookStoreInventory.setBookPrice(book.getBookPrice().multiply(priceMultiplier));
             newBookStoreInventory.setBookStoreCity(bookStore.getBookStoreCity());
-            newBookStoreInventory.setBookStoreID(bookStore.getBookStoreId());
+            newBookStoreInventory.setBookStoreId(bookStore.getBookStoreId());
             newBookStoreInventory.setBookStoreName(bookStore.getBookStoreName());
             newBookStoreInventory.setBookQuantity(1L);
             return bookStoreInventoryRepository.save(newBookStoreInventory);
@@ -50,8 +50,8 @@ public class StorageOperationServiceImpl implements StorageOperationService {
 
     @Override
     public boolean removeBookFromTheBookStoreInventory(BookStoreInventoryRequest request) {
-        if (bookAlreadyExist(request.getBookID(), request.getBookStoreID())) {
-            BookStoreInventory existingbookStoreInventory = bookStoreInventoryRepository.findByBookIdAndBookStoreId(request.getBookID(), request.getBookStoreID());
+        if (bookAlreadyExist(request.getBookId(), request.getBookStoreId())) {
+            BookStoreInventory existingbookStoreInventory = bookStoreInventoryRepository.findByBookIdAndBookStoreId(request.getBookId(), request.getBookStoreId());
 
             bookStoreInventoryRepository.delete(existingbookStoreInventory);
             return true;
@@ -71,7 +71,7 @@ public class StorageOperationServiceImpl implements StorageOperationService {
 
     @Override
     public Book findBookById(Long bookID) {
-        return bookRepository.findByBookID(bookID);
+        return bookRepository.findByBookId(bookID);
     }
 
     @Override

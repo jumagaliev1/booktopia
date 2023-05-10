@@ -18,7 +18,7 @@ public class BookCategoryOrganizerServiceImpl implements BookCategoryOrganizerSe
 
     @Override
     public Book changeBookCategory(Long bookID, Long categoryID) {
-        Book book = bookRepository.findByBookID(bookID);
+        Book book = bookRepository.findByBookId(bookID);
         Category category = categoryRepository.findByCategoryId(categoryID);
 
         book.setBookCategory(category.getCategoryName());

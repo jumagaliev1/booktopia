@@ -15,13 +15,13 @@ import java.math.BigDecimal;
 public class BookStoreInventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bookStoreInventoryID;
+    private Long bookStoreInventoryId;
 
-    private Long bookStoreID;
+    private Long bookStoreId;
 
     private String bookStoreName;
 
-    private Long bookID;
+    private Long bookId;
 
     private String bookName;
 
